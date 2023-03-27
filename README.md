@@ -1,8 +1,8 @@
 <a name="readme-top"></a>
-# React metrics webapp capstone project (Module 3)
+# vet-clinic-db project project (Module 4)
 
 <div align="center">
-  <img src="metrics.png" alt="logo" width="200"  height="auto" />
+  <img src="" alt="logo" width="200"  height="auto" />
   <br/>
 
   <h3><b>vet-clinic-db project</b></h3>
