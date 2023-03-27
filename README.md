@@ -29,7 +29,12 @@
 
 # 📖 Vet Clinic <a name="about-project"></a>
 
-**Vet Clinic** is a project to create the initial data structure for a vet clinic using a relational database. It implements PostgreSQL and contains all the data about animals.
+**Vet Clinic** is a project to create data structure for a vet clinic using a relational database. It implements PostgreSQL and contains all the data about animals. The complete database contains tables with data about:
+    [] animals
+    [] animals' owners
+    [] clinic employees
+    [] visits
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
