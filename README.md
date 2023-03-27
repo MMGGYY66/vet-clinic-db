@@ -139,8 +139,8 @@ Give a start if you like this project!
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) 
+ [MIT license](https://choosealicense.com/licenses/mit/) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
