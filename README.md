@@ -139,7 +139,7 @@ Give a start if you like this project!
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](https://github.com/MMGGYY66/vet-clinic-db/blob/animals-db/MIT.md).
 
  [MIT license](https://choosealicense.com/licenses/mit/) 
 
