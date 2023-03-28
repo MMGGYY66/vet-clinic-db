@@ -32,7 +32,7 @@ INSERT INTO animals (
   )
 VALUES ('Devimon', '2017-05-12', 5, true, 11);
 
--- new records
+-- new records day 2
 INSERT INTO animals (
     name,
     date_of_birth,
