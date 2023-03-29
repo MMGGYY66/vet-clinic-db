@@ -179,7 +179,6 @@ FROM owners
 --Dean Winchester | Boarmon
 --Jodie Whittaker |
 --(11 rows)
-
 -- 4. How many animals are there per species?
 SELECT species.name AS name_of_species,
     COUNT(species_id) AS how_many_species
@@ -193,7 +192,18 @@ GROUP BY species.name;
 --Digimon         |                6
 --(2 rows)
 
--- List all Digimon owned by Jennifer Orwell.
+-- 5. List all Digimon owned by Jennifer Orwell.
+SELECT name AS all_Digimons,
+    full_name AS owner_full_name
+FROM animals
+    JOIN owners ON animals.owner_id = owners.id
+WHERE full_name = 'Jennifer Orwell'
+    AND name LIKE '%mon';
+-- Answer:
+--  all_digimons | owner_full_name
+--------------+-----------------
+-- Gabumon      | Jennifer Orwell
+-- (1 row)
 
 -- List all animals owned by Dean Winchester that haven't tried to escape.
 
