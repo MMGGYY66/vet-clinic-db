@@ -12,4 +12,18 @@ CREATE TABLE animals (
  ALTER TABLE animals ADD species varchar(100);
 
  -- Day 3 --- Vet clinic database: query multiple tables
- 
+ -- create owners table
+ CREATE TABLE owners (
+  id int primary key GENERATED ALWAYS AS IDENTITY ,
+  full_name varchar(255),
+  age int
+ );
+
+  -- create species table
+ CREATE TABLE species (
+  id int primary key GENERATED ALWAYS AS IDENTITY ,
+  name varchar(255)
+ );
+
+ -- Modify animals table:
+-- Remove column species
