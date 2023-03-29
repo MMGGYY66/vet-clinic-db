@@ -29,4 +29,16 @@ CREATE TABLE animals (
 -- Remove column species
 ALTER TABLE animals DROP COLUMN species;
 
+ -- Add species_id column to animals table
+ALTER TABLE animals ADD species_id INT;
+
+ALTER TABLE animals
+ADD CONSTRAINT fk_species
+FOREIGN KEY (species_id)
+REFERENCES species (id)
+ON DELETE CASCADE;
+
  -- Add owner_id column to animals table
+
+
+
