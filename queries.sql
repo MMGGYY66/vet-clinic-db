@@ -130,9 +130,12 @@ GROUP BY species;
 --  species | av_escape_attempts
 ---------+--------------------
 -- pokemon | 3.0000000000000000
+
+-------------------------------------------
+-------------------------------------------
 -- Day 3 update -------
 -- Write queries (using JOIN) to answer the following questions:
--- What animals belong to Melody Pond?
+-- 1. What animals belong to Melody Pond?
 SELECT name AS name_of_animal,
     full_name AS owner_full_name
 FROM animals
@@ -145,7 +148,8 @@ WHERE full_name = 'Melody Pond';
 -- Squirtle       | Melody Pond
 -- Charmander     | Melody Pond
 -- (3 rows)
--- List of all animals that are pokemon (their type is Pokemon).
+
+-- 2. List of all animals that are pokemon (their type is Pokemon).
 SELECT animals.name AS pokemons_only
 FROM animals
     JOIN species ON animals.species_id = species.id
@@ -159,7 +163,8 @@ WHERE species.name = 'Pokemon';
 -- Squirtle
 -- Charmander
 --  (5 rows)
--- List all owners and their animals, remember to include those that don't own any animal.
+
+-- 3. List all owners and their animals, remember to include those that don't own any animal.
 SELECT full_name AS owner_full_name,
     name AS name_of_animal
 FROM owners
@@ -179,6 +184,7 @@ FROM owners
 --Dean Winchester | Boarmon
 --Jodie Whittaker |
 --(11 rows)
+
 -- 4. How many animals are there per species?
 SELECT species.name AS name_of_species,
     COUNT(species_id) AS how_many_species
@@ -206,14 +212,27 @@ WHERE full_name = 'Jennifer Orwell'
 -- (1 row)
 
 -- 6. List all animals owned by Dean Winchester that haven't tried to escape.
-SELECT name AS name_of_animal, full_name AS owner_full_name 
+SELECT name AS name_of_animal,
+    full_name AS owner_full_name
 FROM animals
-JOIN owners
-  ON animals.owner_id = owners.id
-  WHERE full_name = 'Dean Winchester' AND escape_attempts = 0;
-  -- Answer:
+    JOIN owners ON animals.owner_id = owners.id
+WHERE full_name = 'Dean Winchester'
+    AND escape_attempts = 0;
+-- Answer:
 --  name_of_animal | owner_full_name
 ----------------+-----------------
 --(0 rows)
 
--- Who owns the most animals?
+-- 7. Who owns the most animals?
+SELECT full_name AS owner_full_name,
+    COUNT(owner_id) AS biggest_number_of_animals_owned
+FROM animals
+    JOIN owners ON animals.owner_id = owners.id
+GROUP BY full_name
+ORDER BY biggest_number_of_animals_owned DESC
+LIMIT 1;
+-- Answer:
+-- owner_full_name | biggest_number_of_animals_owned
+-----------------+---------------------------------
+-- Melody Pond     |                 3
+-- (1 row)
