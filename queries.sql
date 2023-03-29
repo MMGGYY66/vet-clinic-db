@@ -130,62 +130,68 @@ GROUP BY species;
 --  species | av_escape_attempts
 ---------+--------------------
 -- pokemon | 3.0000000000000000
-
 -- Day 3 update -------
 -- Write queries (using JOIN) to answer the following questions:
 -- What animals belong to Melody Pond?
-SELECT name AS name_of_animal, full_name AS owner_full_name 
+SELECT name AS name_of_animal,
+    full_name AS owner_full_name
 FROM animals
-JOIN owners
-  ON animals.owner_id = owners.id
-  WHERE full_name = 'Melody Pond';
-  -- Answer:
- -- name_of_animal | owner_full_name
+    JOIN owners ON animals.owner_id = owners.id
+WHERE full_name = 'Melody Pond';
+-- Answer:
+-- name_of_animal | owner_full_name
 ------------------+-----------------
 -- Blossom        | Melody Pond
 -- Squirtle       | Melody Pond
 -- Charmander     | Melody Pond
 -- (3 rows)
-
 -- List of all animals that are pokemon (their type is Pokemon).
-SELECT animals.name AS pokemons_only 
+SELECT animals.name AS pokemons_only
 FROM animals
-JOIN species
-  ON animals.species_id = species.id
-  WHERE species.name = 'Pokemon';
+    JOIN species ON animals.species_id = species.id
+WHERE species.name = 'Pokemon';
 -- Answer:
 -- pokemons_only
 ---------------
- -- Pikachu
- -- Blossom
- -- Ditto
- -- Squirtle
- -- Charmander
+-- Pikachu
+-- Blossom
+-- Ditto
+-- Squirtle
+-- Charmander
 --  (5 rows)
-
 -- List all owners and their animals, remember to include those that don't own any animal.
-SELECT full_name AS owner_full_name, name AS name_of_animal
+SELECT full_name AS owner_full_name,
+    name AS name_of_animal
 FROM owners
-LEFT JOIN animals
-  ON animals.owner_id = owners.id;
-  -- Answer:
+    LEFT JOIN animals ON animals.owner_id = owners.id;
+-- Answer:
 -- owner_full_name | name_of_animal
 -----------------+----------------
- --Sam Smith       | Agumon
- --Jennifer Orwell | Pikachu
- --Jennifer Orwell | Gabumon
- --Bob             | Plantmon
- --Bob             | Devimon
- --Melody Pond     | Charmander
- --Melody Pond     | Squirtle
- --Melody Pond     | Blossom
- --Dean Winchester | Angemon
- --Dean Winchester | Boarmon
- --Jodie Whittaker |
+--Sam Smith       | Agumon
+--Jennifer Orwell | Pikachu
+--Jennifer Orwell | Gabumon
+--Bob             | Plantmon
+--Bob             | Devimon
+--Melody Pond     | Charmander
+--Melody Pond     | Squirtle
+--Melody Pond     | Blossom
+--Dean Winchester | Angemon
+--Dean Winchester | Boarmon
+--Jodie Whittaker |
 --(11 rows)
 
-
--- How many animals are there per species?
+-- 4. How many animals are there per species?
+SELECT species.name AS name_of_species,
+    COUNT(species_id) AS how_many_species
+FROM species
+    JOIN animals ON animals.species_id = species.id
+GROUP BY species.name;
+-- Answer:
+--name_of_species | how_many_species
+-----------------+------------------
+--Pokemon         |                5
+--Digimon         |                6
+--(2 rows)
 
 -- List all Digimon owned by Jennifer Orwell.
 
