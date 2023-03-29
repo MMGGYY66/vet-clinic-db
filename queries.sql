@@ -205,6 +205,15 @@ WHERE full_name = 'Jennifer Orwell'
 -- Gabumon      | Jennifer Orwell
 -- (1 row)
 
--- List all animals owned by Dean Winchester that haven't tried to escape.
+-- 6. List all animals owned by Dean Winchester that haven't tried to escape.
+SELECT name AS name_of_animal, full_name AS owner_full_name 
+FROM animals
+JOIN owners
+  ON animals.owner_id = owners.id
+  WHERE full_name = 'Dean Winchester' AND escape_attempts = 0;
+  -- Answer:
+--  name_of_animal | owner_full_name
+----------------+-----------------
+--(0 rows)
 
 -- Who owns the most animals?
