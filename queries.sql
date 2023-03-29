@@ -148,6 +148,20 @@ JOIN owners
 -- (3 rows)
 
 -- List of all animals that are pokemon (their type is Pokemon).
+SELECT animals.name AS pokemons_only 
+FROM animals
+JOIN species
+  ON animals.species_id = species.id
+  WHERE species.name = 'Pokemon';
+-- Answer:
+-- pokemons_only
+---------------
+ -- Pikachu
+ -- Blossom
+ -- Ditto
+ -- Squirtle
+ -- Charmander
+--  (5 rows)
 
 -- List all owners and their animals, remember to include those that don't own any animal.
 
