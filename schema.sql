@@ -10,3 +10,6 @@ CREATE TABLE animals (
   );
 
  ALTER TABLE animals ADD species varchar(100);
+
+ -- Day 3 --- Vet clinic database: query multiple tables
+ 
