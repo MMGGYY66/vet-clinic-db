@@ -27,3 +27,6 @@ CREATE TABLE animals (
 
  -- Modify animals table:
 -- Remove column species
+ALTER TABLE animals DROP COLUMN species;
+
+ -- Add owner_id column to animals table
