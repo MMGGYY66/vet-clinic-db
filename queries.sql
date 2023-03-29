@@ -36,6 +36,7 @@ WHERE name != 'Gabumon';
 SELECT *
 FROM animals
 WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
 -- new Queries day 2
 -- Inside a transaction update the animals table by setting the species column to unspecified. Verify that change was made. Then roll back the change and verify that the species columns went back to the state before the transaction.
 start transaction;
@@ -61,5 +62,14 @@ UPDATE animals
 SET species = 'pokemon'
 WHERE species = '';
 commit;
-
 -- Verify that the species column was updated.
+
+-- Inside a transaction delete all records in the animals table, then roll back the transaction. After the rollback verify if all records in the animals table still exists. After that, you can start breathing as usual
+
+start transaction;
+savepoint B3;
+DELETE FROM animals;
+-- Verify that the species column was updated.
+start transaction;
+ROLLBACK to B3;
+commit;
