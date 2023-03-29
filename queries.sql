@@ -36,16 +36,30 @@ WHERE name != 'Gabumon';
 SELECT *
 FROM animals
 WHERE weight_kg BETWEEN 10.4 AND 17.3;
-
 -- new Queries day 2
 -- Inside a transaction update the animals table by setting the species column to unspecified. Verify that change was made. Then roll back the change and verify that the species columns went back to the state before the transaction.
-
 start transaction;
-  savepoint B1;
-	UPDATE animals
-	SET species = 'unspecified';
+savepoint B1;
+UPDATE animals
+SET species = 'unspecified';
 -- Verify that the species column was updated.
 start transaction;
-    ROLLBACK to B1;
-    select * from animals;
-		commit;
+ROLLBACK to B1;
+select *
+from animals;
+commit;
+
+start transaction;
+UPDATE animals
+SET species = 'digimon'
+WHERE name LIKE'%mon';
+commit;
+
+-- Verify that the species column was updated.
+start transaction;
+UPDATE animals
+SET species = 'pokemon'
+WHERE species = '';
+commit;
+
+-- Verify that the species column was updated.
