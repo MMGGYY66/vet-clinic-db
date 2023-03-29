@@ -97,3 +97,49 @@ UPDATE animals
 SET weight_kg = weight_kg * -1
 WHERE weight_kg < 0;
 commit;
+
+-- Write queries to answer the following questions:
+-- How many animals are there?
+SELECT 
+    COUNT(name)
+FROM
+    animals; -- 11 animals
+
+-- How many animals have never tried to escape?
+SELECT 
+    COUNT(escape_attempts)
+FROM
+    animals
+WHERE escape_attempts <= 0; -- THE ANSWER IS 2
+
+-- What is the average weight of animals?
+SELECT 
+    AVG(weight_kg)
+FROM
+    animals; -- the average weight IS 16.1363636363636364
+
+-- Who escapes the most, neutered or not neutered animals?
+SELECT neutered,
+SUM(escape_attempts) total_attempts 
+FROM animals 
+GROUP BY neutered; -- neutered 24 or not neutered 4
+
+-- What is the minimum and maximum weight of each type of animal?
+SELECT species,
+MIN(weight_kg) AS min_weight, 
+MAX(weight_kg) max_weight 
+FROM animals 
+GROUP BY species; -- species | min_weight | max_weight
+                  ---------+------------+------------
+                  -- pokemon |         11 |         22
+                  -- digimon |        5.7 |         45
+
+-- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+SELECT species, 
+AVG(escape_attempts) AS av_escape_attempts 
+FROM animals 
+WHERE EXTRACT(YEAR FROM date_of_birth) 
+BETWEEN 1990 AND 2000 
+GROUP BY species; --  species | av_escape_attempts
+                  ---------+--------------------
+                  -- pokemon | 3.0000000000000000
