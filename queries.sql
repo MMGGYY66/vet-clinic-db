@@ -164,6 +164,26 @@ JOIN species
 --  (5 rows)
 
 -- List all owners and their animals, remember to include those that don't own any animal.
+SELECT full_name AS owner_full_name, name AS name_of_animal
+FROM owners
+LEFT JOIN animals
+  ON animals.owner_id = owners.id;
+  -- Answer:
+-- owner_full_name | name_of_animal
+-----------------+----------------
+ --Sam Smith       | Agumon
+ --Jennifer Orwell | Pikachu
+ --Jennifer Orwell | Gabumon
+ --Bob             | Plantmon
+ --Bob             | Devimon
+ --Melody Pond     | Charmander
+ --Melody Pond     | Squirtle
+ --Melody Pond     | Blossom
+ --Dean Winchester | Angemon
+ --Dean Winchester | Boarmon
+ --Jodie Whittaker |
+--(11 rows)
+
 
 -- How many animals are there per species?
 
