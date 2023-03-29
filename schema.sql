@@ -39,6 +39,13 @@ REFERENCES species (id)
 ON DELETE CASCADE;
 
  -- Add owner_id column to animals table
+ALTER TABLE animals ADD owner_id INT;
+
+ALTER TABLE animals
+ADD CONSTRAINT fk_owners
+FOREIGN KEY (owner_id)
+REFERENCES owners (id)
+ON DELETE CASCADE;
 
 
 
