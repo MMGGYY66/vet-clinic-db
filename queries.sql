@@ -134,6 +134,18 @@ GROUP BY species;
 -- Day 3 update -------
 -- Write queries (using JOIN) to answer the following questions:
 -- What animals belong to Melody Pond?
+SELECT name AS name_of_animal, full_name AS owner_full_name 
+FROM animals
+JOIN owners
+  ON animals.owner_id = owners.id
+  WHERE full_name = 'Melody Pond';
+  -- Answer:
+ -- name_of_animal | owner_full_name
+------------------+-----------------
+-- Blossom        | Melody Pond
+-- Squirtle       | Melody Pond
+-- Charmander     | Melody Pond
+-- (3 rows)
 
 -- List of all animals that are pokemon (their type is Pokemon).
 
