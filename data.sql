@@ -99,3 +99,17 @@ VALUES ('Sam Smith', 34),
        ('Dean Winchester', 14),
        ('Jodie Whittaker', 38);
 
+-- Day 3 -- Insert the following data into the owners table:
+INSERT INTO owners (full_name, age)
+VALUES ('Sam Smith', 34),
+       ('Jennifer Orwell', 19),
+       ('Bob', 45),
+       ('Melody Pond', 77),
+       ('Dean Winchester', 14),
+       ('Jodie Whittaker', 38);
+
+-- Insert the following data into the species table:
+INSERT INTO species (name)
+VALUES ('Pokemon'),
+       ('Digimon');
+
