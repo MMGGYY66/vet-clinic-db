@@ -108,6 +108,7 @@ SELECT neutered,
 FROM animals
 GROUP BY neutered;
 -- neutered 24 or not neutered 4
+
 -- What is the minimum and maximum weight of each type of animal?
 SELECT species,
     MIN(weight_kg) AS min_weight,
