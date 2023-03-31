@@ -309,6 +309,21 @@ LIMIT 1;
 -- (1 row)
 
 --6. Who was Maisy Smith's first visit?
+SELECT animals.name AS Maisy_Smith_first_visit
+FROM animals
+JOIN visits
+ON animals.id = visits.animals_id
+JOIN vets
+ON vets.id = visits.vets_id
+WHERE vets.name = 'Maisy Smith'
+ORDER BY date_of_visit ASC
+LIMIT 1;
+-- Answer:
+--  maisy_smith_first_visit
+-------------------------
+ -- Boarmon
+-- (1 row)
+
 --7. Details for most recent visit: animal information, vet information, and date of visit.
 --8. How many visits were with a vet that did not specialize in that animal's species?
 --9. What specialty should Maisy Smith consider getting? Look for the species she gets the most.
