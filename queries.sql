@@ -108,7 +108,6 @@ SELECT neutered,
 FROM animals
 GROUP BY neutered;
 -- neutered 24 or not neutered 4
-
 -- What is the minimum and maximum weight of each type of animal?
 SELECT species,
     MIN(weight_kg) AS min_weight,
@@ -131,7 +130,6 @@ GROUP BY species;
 --  species | av_escape_attempts
 ---------+--------------------
 -- pokemon | 3.0000000000000000
-
 -------------------------------------------
 -------------------------------------------
 -- Day 3 update -------
@@ -149,7 +147,6 @@ WHERE full_name = 'Melody Pond';
 -- Squirtle       | Melody Pond
 -- Charmander     | Melody Pond
 -- (3 rows)
-
 -- 2. List of all animals that are pokemon (their type is Pokemon).
 SELECT animals.name AS pokemons_only
 FROM animals
@@ -164,7 +161,6 @@ WHERE species.name = 'Pokemon';
 -- Squirtle
 -- Charmander
 --  (5 rows)
-
 -- 3. List all owners and their animals, remember to include those that don't own any animal.
 SELECT full_name AS owner_full_name,
     name AS name_of_animal
@@ -185,7 +181,6 @@ FROM owners
 --Dean Winchester | Boarmon
 --Jodie Whittaker |
 --(11 rows)
-
 -- 4. How many animals are there per species?
 SELECT species.name AS name_of_species,
     COUNT(species_id) AS how_many_species
@@ -198,7 +193,6 @@ GROUP BY species.name;
 --Pokemon         |                5
 --Digimon         |                6
 --(2 rows)
-
 -- 5. List all Digimon owned by Jennifer Orwell.
 SELECT name AS all_Digimons,
     full_name AS owner_full_name
@@ -211,7 +205,6 @@ WHERE full_name = 'Jennifer Orwell'
 --------------+-----------------
 -- Gabumon      | Jennifer Orwell
 -- (1 row)
-
 -- 6. List all animals owned by Dean Winchester that haven't tried to escape.
 SELECT name AS name_of_animal,
     full_name AS owner_full_name
@@ -223,7 +216,6 @@ WHERE full_name = 'Dean Winchester'
 --  name_of_animal | owner_full_name
 ----------------+-----------------
 --(0 rows)
-
 -- 7. Who owns the most animals?
 SELECT full_name AS owner_full_name,
     COUNT(owner_id) AS biggest_number_of_animals_owned
@@ -237,3 +229,28 @@ LIMIT 1;
 -----------------+---------------------------------
 -- Melody Pond     |                 3
 -- (1 row)
+----------------------------------------------------------
+----------------------------------------------------------
+-- Day 4 ---- Write queries to answer the following:
+--1. Who was the last animal seen by William Tatcher?
+SELECT animals.name AS "last seen by William Tatcher"
+FROM animals
+    JOIN visits ON animals.id = visits.animals_id
+    JOIN vets ON vets.id = visits.vets_id
+WHERE vets.name = 'William Tatcher'
+ORDER BY date_of_visit DESC
+LIMIT 1;
+-- Answer:
+ --last seen by William Tatcher
+------------------------------
+ --Blossom
+--(1 row)
+
+--2. How many different animals did Stephanie Mendez see?
+--3. List all vets and their specialties, including vets with no specialties.
+--4. List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
+--5. What animal has the most visits to vets?
+--6. Who was Maisy Smith's first visit?
+--7. Details for most recent visit: animal information, vet information, and date of visit.
+--8. How many visits were with a vet that did not specialize in that animal's species?
+--9. What specialty should Maisy Smith consider getting? Look for the species she gets the most.

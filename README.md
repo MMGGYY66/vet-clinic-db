@@ -2,8 +2,8 @@
 # vet-clinic-db project (Module 4)
 
 <div align="center">
-  <!-- <img src="" alt="logo" width="200"  height="auto" />
-  <br/> -->
+  <img src="postgresql-logo.png" alt="logo" width="200"  height="auto" />
+  <br/> 
   <h3><b>vet-clinic-db project</b></h3>
 
 </div>

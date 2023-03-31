@@ -9,7 +9,6 @@ CREATE TABLE animals (
 );
 ALTER TABLE animals
 ADD species varchar(100);
-
 -- Day 3 --- Vet clinic database: query multiple tables
 -- create owners table
 CREATE TABLE owners (
@@ -35,8 +34,8 @@ ALTER TABLE animals
 ADD owner_id INT;
 ALTER TABLE animals
 ADD CONSTRAINT fk_owners FOREIGN KEY (owner_id) REFERENCES owners (id) ON DELETE CASCADE;
----------------------------------------------------------
-
+----------------------------------------------------------
+----------------------------------------------------------
 -- Day 4 project —- 
 -- create vets table
 CREATE TABLE vets (
@@ -45,17 +44,15 @@ CREATE TABLE vets (
   age integer,
   date_of_graduation date
 );
-
 -- Create a "join table" called specializations to handle a many-to-many relationship between the tables species and vets
 CREATE TABLE specializations(
-	specializations_id  SERIAL PRIMARY KEY,
+  specializations_id SERIAL PRIMARY KEY,
   species_id INTEGER REFERENCES species(id),
   vets_id INTEGER REFERENCES vets(id)
 );
-
 -- Create a join table called visits to handle a many-to-many relationship between the tables animals and vets
 CREATE TABLE visits(
-	visit_id  SERIAL PRIMARY KEY,
+  visit_id SERIAL PRIMARY KEY,
   animals_id INTEGER REFERENCES animals (id),
   vets_id INTEGER REFERENCES vets(id),
   date_of_visit DATE

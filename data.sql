@@ -152,7 +152,8 @@ SET owner_id = CASE
       WHERE full_name = 'Dean Winchester'
     )
   END;
---------------------------------------------------
+----------------------------------------------------------
+----------------------------------------------------------
 -- Day 4 --- Insert data for vets:
 INSERT INTO vets (name, age, date_of_graduation)
 VALUES ('William Tatcher', 45, '2000-04-23'),
@@ -471,4 +472,3 @@ VALUES (
     ),
     '2021-01-11'
   );
-  
