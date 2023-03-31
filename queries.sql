@@ -269,8 +269,31 @@ LEFT JOIN species
 ON species.id = specializations.species_id
 ORDER BY vet_name;
 -- Answer:
+--  vet_name     | specialties
+------------------+-------------
+ -- Jack Harkness    | Digimon
+ -- Maisy Smith      |
+ -- Stephanie Mendez | Digimon
+ -- Stephanie Mendez | Pokemon
+ -- William Tatcher  | Pokemon
+-- (5 rows)
 
 --4. List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
+SELECT animals.name AS animals, vets.name AS vet_name
+FROM animals
+JOIN visits
+ON animals.id = visits.animals_id
+JOIN vets
+ON vets.id = visits.vets_id
+WHERE vets.name = 'Stephanie Mendez' 
+  AND date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
+  -- Answer:
+--  animals |     vet_name
+---------+------------------
+ -- Agumon  | Stephanie Mendez
+ -- Blossom | Stephanie Mendez
+-- (2 rows)
+
 --5. What animal has the most visits to vets?
 --6. Who was Maisy Smith's first visit?
 --7. Details for most recent visit: animal information, vet information, and date of visit.
