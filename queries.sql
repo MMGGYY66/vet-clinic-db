@@ -340,4 +340,16 @@ LIMIT 1;
 -- (1 row)
 
 --8. How many visits were with a vet that did not specialize in that animal's species?
+SELECT COUNT(visits.animals_id) AS "8. How many visits were with a vet that did not specialize"
+FROM visits
+LEFT JOIN specializations
+ON visits.vets_id = specializations.vets_id
+GROUP BY specializations.vets_id
+HAVING specializations.vets_id IS NULL;
+-- Answer:
+--  8. How many visits were with a vet that did not specialize
+------------------------------------------------------------
+--   9
+--  (1 row)
+
 --9. What specialty should Maisy Smith consider getting? Look for the species she gets the most.
