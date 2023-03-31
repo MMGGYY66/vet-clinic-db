@@ -295,6 +295,19 @@ WHERE vets.name = 'Stephanie Mendez'
 -- (2 rows)
 
 --5. What animal has the most visits to vets?
+SELECT animals.name AS animals, COUNT(visits.animals_id) AS Highest_number_of_visits_to_vet
+FROM animals
+JOIN visits
+ON animals.id = visits.animals_id
+GROUP BY animals.name
+ORDER BY Highest_number_of_visits_to_vet DESC
+LIMIT 1;
+-- Answer:
+--  animals | highest_number_of_visits_to_vet
+---------+---------------------------------
+ -- Boarmon |              4
+-- (1 row)
+
 --6. Who was Maisy Smith's first visit?
 --7. Details for most recent visit: animal information, vet information, and date of visit.
 --8. How many visits were with a vet that did not specialize in that animal's species?
