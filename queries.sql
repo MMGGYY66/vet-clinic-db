@@ -353,3 +353,20 @@ HAVING specializations.vets_id IS NULL;
 --  (1 row)
 
 --9. What specialty should Maisy Smith consider getting? Look for the species she gets the most.
+SELECT species.name AS "9. What specialty should Maisy Smith consider getting? Look for the species she gets the most."
+FROM animals
+JOIN species
+ON animals.species_id = species.id
+JOIN visits
+ON animals.id = visits.animals_id
+JOIN vets
+ON vets.id = visits.vets_id
+WHERE vets.name = 'Maisy Smith'
+GROUP BY species.id
+ORDER BY COUNT(species.id) DESC
+LIMIT 1;
+-- Answer:
+--  9. What specialty should Maisy Smith consider getting? Look for
+-----------------------------------------------------------------
+ -- Digimon
+-- (1 row)
