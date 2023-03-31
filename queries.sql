@@ -261,6 +261,15 @@ WHERE vets.name = 'Stephanie Mendez';
 -- (1 row)
 
 --3. List all vets and their specialties, including vets with no specialties.
+SELECT vets.name AS vet_name, species.name AS specialties
+FROM vets
+LEFT JOIN specializations
+ON vets.id = specializations.vets_id
+LEFT JOIN species
+ON species.id = specializations.species_id
+ORDER BY vet_name;
+-- Answer:
+
 --4. List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
 --5. What animal has the most visits to vets?
 --6. Who was Maisy Smith's first visit?
