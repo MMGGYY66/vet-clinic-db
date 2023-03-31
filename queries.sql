@@ -247,6 +247,19 @@ LIMIT 1;
 --(1 row)
 
 --2. How many different animals did Stephanie Mendez see?
+SELECT COUNT(animals.name) AS "How many different animals did Stephanie Mendez see"
+FROM animals
+JOIN visits
+ON animals.id = visits.animals_id
+JOIN vets
+ON vets.id = visits.vets_id
+WHERE vets.name = 'Stephanie Mendez';
+-- Answer:
+--  How many different animals did Stephanie Mendez see
+-----------------------------------------------------
+--  4
+-- (1 row)
+
 --3. List all vets and their specialties, including vets with no specialties.
 --4. List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
 --5. What animal has the most visits to vets?
