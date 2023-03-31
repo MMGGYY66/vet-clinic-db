@@ -325,5 +325,19 @@ LIMIT 1;
 -- (1 row)
 
 --7. Details for most recent visit: animal information, vet information, and date of visit.
+SELECT animals.name AS animal_name, vets.name AS vet_name, date_of_visit
+FROM animals
+JOIN visits
+ON animals.id = visits.animals_id
+JOIN vets
+ON vets.id = visits.vets_id
+ORDER BY date_of_visit DESC
+LIMIT 1;
+-- Answer:
+--  animal_name |     vet_name     | date_of_visit
+-------------+------------------+---------------
+ -- Devimon     | Stephanie Mendez | 2021-05-04
+-- (1 row)
+
 --8. How many visits were with a vet that did not specialize in that animal's species?
 --9. What specialty should Maisy Smith consider getting? Look for the species she gets the most.
