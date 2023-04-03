@@ -57,3 +57,10 @@ CREATE TABLE visits(
   vets_id INTEGER REFERENCES vets(id),
   date_of_visit DATE
 );
+
+/* Performance Audit week 2 Module 4*/
+CREATE INDEX animal_id_desc ON visits(animals_id DESC);
+
+CREATE INDEX vet_id_desc ON visits(vets_id DESC);
+
+CREATE INDEX emails_desc ON owners(email DESC);
