@@ -1,4 +1,4 @@
-CREATE DATABASE hospital_clinics;
+CREATE DATABASE hospital_clinic;
 
 CREATE TABLE patients (
   id INTEGER GENERATED ALWAYS AS IDENTITY ,
@@ -24,4 +24,20 @@ CREATE TABLE invoice_items (
   invoice_id INTEGER,
   treatment_id INTEGER,
   PRIMARY KEY (id)
-)
+);
+
+CREATE TABLE medical_histories (
+  id INTEGER GENERATED ALWAYS AS IDENTITY ,
+  admited_at TIMESTAMP,
+  patient_id INTEGER,
+  status VARCHAR(255),
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE treatments (
+  id INTEGER GENERATED ALWAYS AS IDENTITY ,
+  type VARCHAR(255),
+  name VARCHAR(255),
+  PRIMARY KEY (id)
+);
+  
