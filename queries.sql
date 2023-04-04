@@ -370,3 +370,8 @@ LIMIT 1;
 -----------------------------------------------------------------
  -- Digimon
 -- (1 row)
+
+/* Performance Audit MOD 4 WEEK 2*/
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
