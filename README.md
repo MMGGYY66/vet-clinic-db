@@ -111,6 +111,11 @@ That's it! Congratulations, you have created your database and connected to it. 
 - Facebook: [facebook](https://www.facebook.com/MOHAMED.ELDIMARDASH/)
 - StackOverflow: [stackoverflow](https://stackoverflow.com/users/13605630/mohamed-gamil-eldimardash)
 
+👤👤 **Lucas Comamala**
+
+- GitHub: [@lucascomamala](https://github.com/lucascomamala/)
+- LinkedIn: [Lucas Comamala](https://linkedin.com/in/lucas-comamala/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -144,7 +149,5 @@ Give a start if you like this project!
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](https://github.com/MMGGYY66/vet-clinic-db/blob/animals-db/MIT.md).
-
- [MIT license](https://choosealicense.com/licenses/mit/) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
