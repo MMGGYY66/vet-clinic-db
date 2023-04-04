@@ -12,7 +12,7 @@ CREATE TABLE invoices (
   total_amount DECIMAL,
   generated_at TIMESTAMP,
   payed_at  TIMESTAMP,
-  medical_history_id INTEGER, 
+  medical_history_id INTEGER REFERENCES medical_histories(id), 
   PRIMARY KEY (id)
 );
 
@@ -21,15 +21,15 @@ CREATE TABLE invoice_items (
   unit_price DECIMAL,
   quantity INTEGER,
   total_price DECIMAL,
-  invoice_id INTEGER,
-  treatment_id INTEGER,
+  invoice_id INTEGER REFERENCES invoices(id),
+  treatment_id INTEGER REFERENCES treatments(id),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE medical_histories (
   id INTEGER GENERATED ALWAYS AS IDENTITY ,
   admited_at TIMESTAMP,
-  patient_id INTEGER,
+  patient_id INTEGER REFERENCES patiens(id),
   status VARCHAR(255),
   PRIMARY KEY (id)
 );
@@ -40,4 +40,11 @@ CREATE TABLE treatments (
   name VARCHAR(255),
   PRIMARY KEY (id)
 );
-  
+
+-- helper table to join treatments and medical histories in many-to-many relationship
+CREATE TABLE medical_history_treatments (
+  medical_history_id INTEGER REFERENCES medical_histories(id),
+  treatment_id INTEGER REFERENCES treatments(id),
+  PRIMARY KEY (medical_history_id, treatment_id)
+);
+
